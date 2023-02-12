@@ -79,7 +79,7 @@ class Skateboard extends NonEngineVehicles
 firstVehicle = new Car('2jz', '330')
 secondVehicle = new Car('Pentastar', '285')
 
-thirdVehicle = new Skateboard('Klunker 3000','2', 'offroad')
+thirdVehicle = new Bike('Klunker 3000','2', 'offroad')
 
 fourthVehicle = new Skateboard('Wood light', '4', 'city')
 
