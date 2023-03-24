@@ -13,8 +13,8 @@ class LoginDataBaseInterface(ABC):
 
 
 
-#Interface Implementation, can be replaced easily with another class that implements at least auth and query method
-class SQLConnect(LoginDataBaseInterface):
+#Interface Implementation, can be replaced easily with another class that implements at least auth and user_login method
+class SQLLogin(LoginDataBaseInterface):
     def __init__(self, credentials):
         self.auth = SQL_OUT_Dependency().sqlAuth(credentials)
     
@@ -25,7 +25,6 @@ class SQLConnect(LoginDataBaseInterface):
 
 #Use Case Login, we can use any database dependency here that follow "Database Interface"
 class loginUserCase():
-    
     def __init__(self,DbConnect: LoginDataBaseInterface,login,password):
         self.login = login
         self.password = password
@@ -33,7 +32,7 @@ class loginUserCase():
 
     def run(self):
         credentials_hash = RecoverHash(self.login, self.password)
-        return self.DbConnect().query(credentials_hash)
+        return self.DbConnect().user_login(credentials_hash)
 
 
 
@@ -53,7 +52,9 @@ user_password = POST['password']
 
 sql_query_string = f'SELECT * FROM users WHERE username = "${user_login}" AND password = "${user_password}"';
 
-login = loginUserCase(SQL_OUT_Dependency).run()
+
+sql_login = SQLLogin(credentials)
+login = loginUserCase(sql_login).run()
 
 
 if(login):
