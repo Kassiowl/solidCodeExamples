@@ -24,8 +24,8 @@ class SQLConnect(LoginDataBaseInterface):
 
 
 #Use Case Login, we can use any database dependency here that follow "Database Interface"
-class loginUserCase(SQLConnect):
-
+class loginUserCase():
+    
     def __init__(self,DbConnect: LoginDataBaseInterface,login,password):
         self.login = login
         self.password = password
