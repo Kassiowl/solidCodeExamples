@@ -18,12 +18,12 @@ class SqlImplementation:
 credentials = {
     'username': 'env.SQLUSER',
     'password': 'env.SQLPASS'
-};
+}
 
 POST = {
     "login": 'login',
     "password": 'password'
-};
+}
 
 SqlLogin = SqlImplementation(credentials)
 

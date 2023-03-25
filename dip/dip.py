@@ -39,12 +39,12 @@ class loginUserCase():
 credentials = {
     'username': 'env.SQLUSER',
     'password': 'env.SQLPASS'
-};
+}
 
 POST = {
     "login": 'login',
     "password": 'password'
-};
+}
 
 
 user_login = POST['login']
